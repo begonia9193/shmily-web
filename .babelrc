@@ -3,6 +3,11 @@
     "@babel/preset-react",
     "@babel/preset-env"
   ],
+  "env": {
+    "development": {
+      "plugins": ["dynamic-import-node"]
+    }
+  },
   "plugins": [
     [
       "import",
