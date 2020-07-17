@@ -2,5 +2,8 @@
   "editor.tabSize": 2,
   "prettier.singleQuote": true,
   "prettier.jsxSingleQuote": true,
-  "prettier.semi": false
+  "prettier.semi": false,
+  "path-intellisense.mappings": {
+    "@": "${workspaceRoot}/src"
+  }
 }
