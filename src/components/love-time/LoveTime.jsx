@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import moment from 'moment'
 import Style from './index.less'
 
@@ -23,14 +23,19 @@ const getTime = () => {
 
 export default () => {
   const [times, setTimes] = useState(getTime())
-  setInterval(() => {
-    setTimes(getTime())
-  }, 1000)
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTimes(getTime())
+    }, 1000)
+    return () => {
+      clearInterval(timer)
+    }
+  }, [])
   return (
-    <p className={Style.wrap}>
-      第<strong>{times.day}</strong>天<strong>{times.hour}</strong>小时
-      <strong>{times.minutes}</strong>分钟
-      <strong>{times.seconds}</strong>秒
+    <p className={ Style.wrap }>
+      第<strong>{ times.day }</strong>天<strong>{ times.hour }</strong>小时
+      <strong>{ times.minutes }</strong>分钟
+      <strong>{ times.seconds }</strong>秒
     </p>
   )
 }

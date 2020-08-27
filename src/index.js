@@ -7,8 +7,7 @@ import './less/index.less'
 
 ReactDom.render(
   <Router>
-    <Route path='/' component={App} />
-    <Redirect from='/' to='/home' />
+    <Route path='/' component={ App } />
   </Router>,
   document.getElementById('root')
 )
