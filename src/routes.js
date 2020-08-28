@@ -11,7 +11,7 @@ const routes = [
       {
         name: 'home',
         path: '/main/home',
-        component: lazyLoad(import('@/pages/home/index.jsx')),
+        component: lazyLoad(import('@/pages/ home/index.jsx')),
         exact: true
       }
     ]
