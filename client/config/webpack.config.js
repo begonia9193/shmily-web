@@ -56,6 +56,7 @@ const config = {
     host: 'localhost',
     port: '5200',
     open: true,
+    quiet: true
   },
   resolve: {
     alias: {

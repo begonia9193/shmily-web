@@ -29,6 +29,7 @@ const App = () => {
               )
             })
           }
+          <Route component={ NotFoundPage } />
         </Switch>
         <Redirect to={ isLogin ? '/main' : '/login' } />
       </Router>

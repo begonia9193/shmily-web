@@ -5,3 +5,5 @@ const NotFoundPage = () => {
     <div className="page-404">404 Not Found !</div>
   )
 }
+
+export default NotFoundPage
