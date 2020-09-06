@@ -10,7 +10,7 @@ const htmlWebpackPlugin = new HtmlWebpackPlugin({
  */
 const config = {
   mode: 'development',
-  entry: path.resolve(__dirname, '../src/index.js'),
+  entry: path.resolve(__dirname, '../src/index.jsx'),
   devtool: 'inline-source-map',
   output: {
     path: path.resolve(__dirname, '../build'),
@@ -28,14 +28,7 @@ const config = {
         exclude: /node_modules/,
         use: [
           'style-loader',
-          {
-            loader: 'css-loader',
-            options: {
-              modules: {
-                localIdentName: '[path]-[local]-[hash:5]',
-              },
-            },
-          },
+          'css-loader',
           'less-loader',
         ],
       },
@@ -47,9 +40,6 @@ const config = {
   },
   plugins: [htmlWebpackPlugin],
 
-  resolve: {
-    extensions: ['.mjs', '.js', '.jsx'],
-  },
   devServer: {
     stats: 'errors-only',
     overlay: true,
@@ -59,6 +49,7 @@ const config = {
     quiet: true
   },
   resolve: {
+    extensions: ['.mjs', '.js', '.jsx'],
     alias: {
       '@': path.resolve(__dirname, '../src'),
     },
