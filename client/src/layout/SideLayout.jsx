@@ -9,8 +9,8 @@ const SideLayout = () => {
           menu.map(menuItem => {
             return (
               <>
-                <li className="menu-item" key={menuItem.name}>
-                  <a className="menu-action">{menuItem.title}</a>
+                <li className="menu-item" key={ menuItem.name }>
+                  <a className="menu-action">{ menuItem.title }</a>
                 </li>
               </>
             )

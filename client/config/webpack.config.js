@@ -1,9 +1,11 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 const htmlWebpackPlugin = new HtmlWebpackPlugin({
   template: path.resolve(__dirname, '../public/index.html'),
 })
+const miniCssExtractPlugin = new MiniCssExtractPlugin()
 
 /**
  * @type { import('webpack').Configuration}
@@ -24,21 +26,16 @@ const config = {
         use: ['babel-loader'],
       },
       {
-        test: /\.less$/,
-        exclude: /node_modules/,
+        test: /\.(css|less)$/,
         use: [
-          'style-loader',
+          MiniCssExtractPlugin.loader,
           'css-loader',
-          'less-loader',
+          'less-loader'
         ],
-      },
-      {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
       },
     ],
   },
-  plugins: [htmlWebpackPlugin],
+  plugins: [htmlWebpackPlugin, miniCssExtractPlugin],
 
   devServer: {
     stats: 'errors-only',
