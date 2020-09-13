@@ -3,7 +3,7 @@ import moment from 'moment'
 import './index.less'
 
 const getTime = () => {
-  let start = moment('2018-07-25 17:20:14')
+  let start = moment('2018-07-24 17:20:14')
   const timeCalc = (dateStr) => {
     const result = moment().diff(start, dateStr)
     start = start.add(result, dateStr)
