@@ -32,7 +32,7 @@ export default () => {
       clearInterval(timer)
     }
   }, [])
-  
+
   return (
     <p className="wrap">
       第<strong>{ times.day }</strong>天<strong>{ times.hour }</strong>小时

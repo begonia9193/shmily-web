@@ -1,5 +1,5 @@
 import React from 'react'
-import menu from '@/common/menu.js'
+import menu from '@/common/menu.ts'
 
 const SideLayout = () => {
   return (

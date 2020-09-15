@@ -12,7 +12,7 @@ const miniCssExtractPlugin = new MiniCssExtractPlugin()
  */
 const config = {
   mode: 'development',
-  entry: path.resolve(__dirname, '../src/index.jsx'),
+  entry: path.resolve(__dirname, '../src/index.tsx'),
   devtool: 'inline-source-map',
   output: {
     path: path.resolve(__dirname, '../build'),
@@ -21,11 +21,6 @@ const config = {
   module: {
     rules: [
       {
-        test: /\.(mjs|js|jsx)$/,
-        exclude: /node_modules/,
-        use: ['babel-loader'],
-      },
-      {
         test: /\.(css|less)$/,
         use: [
           MiniCssExtractPlugin.loader,
@@ -33,6 +28,11 @@ const config = {
           'less-loader'
         ],
       },
+      {
+        test: /\.(ts|tsx)$/,
+        use: ['ts-loader'],
+        exclude: /node_modules/
+      }
     ],
   },
   plugins: [htmlWebpackPlugin, miniCssExtractPlugin],
@@ -43,10 +43,11 @@ const config = {
     host: 'localhost',
     port: '5200',
     open: true,
-    quiet: true
+    quiet: false,
+    hot: true
   },
   resolve: {
-    extensions: ['.mjs', '.js', '.jsx'],
+    extensions: ['.ts', '.tsx', '.js', '.jsx'],
     alias: {
       '@': path.resolve(__dirname, '../src'),
     },

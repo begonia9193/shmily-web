@@ -1,8 +1,8 @@
 import React from 'react'
 import { Switch, Route, Redirect } from 'react-router-dom'
-import SideLayout from './SideLayout.jsx'
+import SideLayout from './SideLayout'
 
-const Home = React.lazy(() => import('@/pages/home/index.jsx'))
+const Home = React.lazy(() => import('@/pages/home/index'))
 const Layout = props => {
   const { children, match } = props
   return (

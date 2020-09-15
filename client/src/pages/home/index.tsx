@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button } from 'antd'
-import LoveTime from '@/components/love-time/LoveTime.jsx'
+import LoveTime from '@/components/love-time/LoveTime.tsx'
 
 const Home = () => {
   return (

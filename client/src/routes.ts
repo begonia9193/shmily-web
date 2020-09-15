@@ -5,13 +5,13 @@ const routes = [
   {
     path: '/main',
     name: 'main',
-    component: lazyLoad(import('@/layout/index.jsx')),
+    component: lazyLoad(import('@/layout/index')),
     redirect: '/main/home',
     children: [
       {
         name: 'home',
         path: '/main/home',
-        component: lazyLoad(import('@/pages/home/index.jsx')),
+        component: lazyLoad(import('@/pages/home/index')),
         exact: true
       }
     ]
@@ -19,7 +19,7 @@ const routes = [
   {
     name: 'login',
     path: '/login',
-    component: lazyLoad(import('@/pages/login/index.jsx')),
+    component: lazyLoad(import('@/pages/login/index')),
     exact: true
   }
 ]
