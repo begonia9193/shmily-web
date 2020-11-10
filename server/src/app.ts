@@ -3,16 +3,18 @@ import dotenv from 'dotenv'
 import router from './router/index'
 import mysql from 'mysql'
 import chalk from 'chalk'
+import createPost from './dao/PostsDao'
 
 dotenv.config() // 加载通用的环境变量
 const EnvPath = process.argv[2] === 'dev' ? './dev.env' : './prod.env'
 dotenv.config({ path: EnvPath }) // 根据环境加载环境变量
-mysql.createConnection({
+const db = mysql.createConnection({
   host: process.env.DB_HOST,
   user: 'root',
   password: process.env.DB_PASSWORD,
   database: 'shmily'
-}).connect(err => {
+})
+db.connect(err => {
   if (err) {
     console.log(chalk.red('mysql connect fail !', err))
   } else {
@@ -21,7 +23,7 @@ mysql.createConnection({
 })
 
 
-const app = new Koa();
+const app = new Koa()
 // 注册路由
 app.use(router.routes()).use(router.allowedMethods())
 
