@@ -1,9 +1,11 @@
-import Router from 'koa-router'
+import Router from '@koa/router'
+import UesrController from '@src/controller/user'
 
 const userRouter = new Router()
+const routes = ['login']
 
-userRouter.post('/', async ctx => {
-  ctx.body = 'user index'
+routes.forEach(item => {
+  userRouter.post(`/${item}`, UesrController[item])
 })
 
-export default userRouter
+module.exports = userRouter

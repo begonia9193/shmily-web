@@ -1,9 +1,9 @@
+require('module-alias/register')
 import Koa from 'koa'
 import dotenv from 'dotenv'
-import router from './router/index'
 import mysql from 'mysql'
 import chalk from 'chalk'
-import createPost from './dao/PostsDao'
+import router from '@src/router'
 
 dotenv.config() // 加载通用的环境变量
 const EnvPath = process.argv[2] === 'dev' ? './dev.env' : './prod.env'
@@ -24,7 +24,6 @@ db.connect(err => {
 
 
 const app = new Koa()
-// 注册路由
 app.use(router.routes()).use(router.allowedMethods())
 
 export default app

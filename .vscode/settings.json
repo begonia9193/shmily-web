@@ -6,6 +6,11 @@
   "prettier.jsxBracketSameLine": true,
   "prettier.arrowParens": "avoid",
   "path-intellisense.mappings": {
-    "@": "${workspaceRoot}/src"
-  }
+    "@": "${workspaceRoot}/src",
+    "@src": "${workspaceRoot}/service/src",
+  },
+  "path-intellisense.autoSlashAfterDirectory": true,
+  "path-intellisense.extensionOnImport": true,
+  "path-intellisense.showHiddenFiles": true,
+  "path-intellisense.absolutePathToWorkspace": false
 }
